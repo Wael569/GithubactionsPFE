@@ -1,0 +1,47 @@
+name: Demo Workflow
+
+#  Multiple triggers
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Global environment variables
+env:
+  APP_NAME: MyApp
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+
+    # Job-level env (can include secrets)
+    env:
+      SECRET_MESSAGE: ${{ secrets.MY_SECRET }}
+
+    steps:
+      #  uses → ready-made action
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      #  run → execute command
+      - name: Print basic info
+        run: |
+          echo "App: $APP_NAME"
+          echo "Triggered by: ${{ github.event_name }}"
+
+      #  using env variable
+      - name: Use env variable
+        run: echo "Hello from $APP_NAME"
+
+      #  using secret (if exists)
+      - name: Use secret
+        run: echo "Secret is: $SECRET_MESSAGE"
+
+      #  multi-step logic
+      - name: Step 1
+        run: echo "Step 1 running"
+
+      - name: Step 2
+        run: echo "Step 2 running after Step 1"
