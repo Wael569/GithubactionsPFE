@@ -3,6 +3,8 @@ name: Full CI
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
     
 
 jobs:
