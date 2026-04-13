@@ -18,7 +18,7 @@ jobs:
 
     # Job-level env (can include secrets)
     env:
-      SECRET_MESSAGE: ${{ secrets.MY_SECRET }}
+      SECRET_MESSAGE: "testmsg"
 
     steps:
       #  uses → ready-made action
@@ -37,7 +37,7 @@ jobs:
 
       #  using secret (if exists)
       - name: Use secret
-        run: echo "Secret is: ${{SECRET_MESSAGE}}"
+        run: echo "Secret is: $SECRET_MESSAGE"
 
       #  multi-step logic
       - name: Step 1
