@@ -16,9 +16,6 @@ jobs:
   demo-job:
     runs-on: ubuntu-latest
 
-    # Job-level env (can include secrets)
-    env:
-      SECRET_MESSAGE: "testmsg"
 
     steps:
       #  uses → ready-made action
@@ -35,9 +32,6 @@ jobs:
       - name: Use env variable
         run: echo "Hello from $APP_NAME"
 
-      #  using secret (if exists)
-      - name: Use secret
-        run: echo "Secret is: $SECRET_MESSAGE"
 
       #  multi-step logic
       - name: Step 1
