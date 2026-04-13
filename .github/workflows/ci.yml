@@ -8,17 +8,14 @@ on:
     
 
 jobs:
-
   backend:
-    runs-on: ubuntu-latest
+    uses: Wael569/GithubactionsPFE/.github/workflows/python.yml@main
 
-    steps:
-      - name: call Python file
-        uses: Wael569/GithubactionsPFE/edit/main/.github/workflows/python.yml@main
       
   frontend:
-    runs-on: ubuntu-latest
+    uses: Wael569/GithubactionsPFE/.github/workflows/node.yml@main
 
-    steps:
-      - name: call node file
-        uses: Wael569/GithubactionsPFE/edit/main/.github/workflows/node.yml@main
+      
+ 
+
+   
